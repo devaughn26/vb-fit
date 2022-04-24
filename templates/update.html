@@ -2,12 +2,11 @@
 <style type="text/css">
   .brand-logo{
     margin-left: 10px;
-    color: #d50000; 
+    color: #050ce6; 
   }
   body{
-    background-color: #d3d3d3;
+    background-color: #d1d1d1;
   }
-  
   
 </style>
   <html>
@@ -19,7 +18,7 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>Test</title>
+      <title>VB</title>
     </head>
 
     <body>
@@ -27,15 +26,15 @@
         <li><a href="=#">one</a></li>
       </ul>
 
-      <nav class="nav-extended black">
+      <nav class="nav-extended white">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo red-text" >FitBook</a>
+      <a href="#" class="brand-logo red-text" >VB-FIT</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/logout" style="color:#d50000">Log Out</a></li>
+        <li><a href="/logout" style="color:#d1d1d1">Log Out</a></li>
       </ul>
     </div>
-    <div class="nav-content red accent-4">
+    <div class="nav-content blue accent-4">
       <ul class="tabs tabs-transparent">
         <li class="tab"><a href ="/home">Dashboard</a></li>
         <li class="tab"><a href="/workouts">Workouts</a></li>
@@ -50,33 +49,48 @@
     <li><a href="collapsible.html">Log Out</a></li>
   </ul>
 
- <!---------------------Add Topic Button--------------------------------------------------------> 
-  <div class="container">
-    <div class="row">
-    <h5 class="center">All Discussions</h5>
-    <div class ="fixed-action-btn">
-    <a href="/addTopic" class ="btn-floating red"><i class ="material-icons">add</i></a>
+
+  
+<div class="container">
+  <div class="row">
+    <h5 class="center">Update Post</h5>
   </div>
-  </div>
-  </div>
-  <!-------------------------------------------------------------------------------------------->
+</div>
         
-  
-  <!---------------Rendering Topics------------------------------------------------------------->  
     
-   {% for topic in Topics %}
-  
-   <div  id ="topics" class ="container">
-    <div class="divider black"></div>
+    <div id ="post" class ="container">
+  <div class="divider black"></div>
   <div class="section">
-    <h5><a style="color:red" href ="/forum?topic={{topic.Title}}">{{topic.Title}}</a></h5>
-    <p class ="truncate">{{topic.content}}</p>
+    <h8><a style="color:red">Post by {{update.author}}</a></h8>
+    <p class ="">{{update.content}}</p>
+    </div>
   </div>
+
+      <div class ="container">
+      <div class="row">
+        <form id="myForm" class="col s12 m8 offset-m2" method="POST" action="/updatep?id={{update.id}}">
+            {{ form.csrf_token }}
+
+            <div class="input-field col s10">
+              {{ form.content(size=20, class="validate") }}
+              
+            </div>
+            <div class ="row">
+            <div class=" right input-field">
+              {{form.submit}}
+            </div> 
+        </form>
+      </div>
+    </div>
+      
   </div>
+
+     
   
-  {%endfor%}
-  
-  <!-------------------------------------------------------------------------------------------->
+
+
+
+  </div>
   
 
       <!--JavaScript at end of body for optimized loading-->
