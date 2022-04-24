@@ -6,7 +6,7 @@
   "scripts": {
     "init": "flask init",
     "serve": "flask run",
-    "prod-serve": "gunicorn -b 0.0.0.0:8080 -w 4 App.main:app"
+     "prod-serve": "gunicorn -b 0.0.0.0:8080 -w 4 App.main:app"
   },
   "repository": {
     "type": "git",

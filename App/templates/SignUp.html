@@ -29,9 +29,8 @@
      box-shadow: 0 1px 0 0 black;
      color:white;
    }
-  
+ 
 </style>
-
   <html>
     <head>
       <!--Import Google Icon Font-->
@@ -41,7 +40,7 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>Test</title>
+      <title>Sign Up for Fitbook</title>
     </head>
 
     <body>
@@ -49,31 +48,38 @@
         <h1 class="red-text center"><img style="width:250px;height:200px" src="{{url_for('static',filename='logo.png')}}"></h1>
         <div class="row">
       <div class="row">
-        <form id="myForm" class="col s12 m8 offset-m2" method="POST" action="/login">
+        <form id="myForm" class="col s12 m8 offset-m2" method="POST" action="/signup">
             {{ form.csrf_token }}
 
             <div class="input-field col s12 m8 offset-m2"> 
               {{ form.username(size=20, class="validate") }}
               {{ form.username.label }}
             </div>
+
+            <div class="input-field col s12 m8 offset-m2">
+              {{ form.email(size=50, class="validate") }}
+              {{ form.email.label }}
+            </div>
+
             <div class="input-field col s12 m8 offset-m2">
               {{ form.password(size=20, class="validate") }}
               {{ form.password.label }}
             </div>
-            <div class=" center input-field col s12 m8 offset-m2">
+
+            <div class="input-field col s12 m8 offset-m2">
+              {{ form.confirm(size=20, class="validate") }}
+              {{ form.confirm.label }}
+            </div>
+
+            <div class="center input-field col s12 m8 offset-m2">
               {{form.submit}}
             </div> 
         </form>
-        
       </div>
   </div>
       </div>
-      <div class="row">
-          
-        <p class ="center white-text">Don't have an account?<a href ="/signup">Sign Up!</a></p>
-        </div>
 
-      
+     
 
       <!--JavaScript at end of body for optimized loading-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
